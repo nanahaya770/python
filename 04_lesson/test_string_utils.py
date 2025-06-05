@@ -57,7 +57,7 @@ def test_trim_negative(input_str, expected):
     ("Skypro", "S", True),
     ("Привет", "П", True),
     ("123", "1", True),
-    (" ", " ", True)
+    (" ", " ", True),
     ("Skypro", "Sky", True),
     ("Привет", "Привет", True),
     ("Skypro", "U", False),
