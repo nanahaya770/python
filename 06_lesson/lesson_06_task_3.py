@@ -10,7 +10,7 @@ driver = webdriver.Chrome(
 driver.get(
     "https://bonigarcia.dev/selenium-webdriver-java/loading-images.html"
 )
-driver.implicitly_wait(20)
+driver.implicitly_wait(21)
 picture = driver.find_element(By.ID, "award")
 print(picture.get_attribute("src"))
 

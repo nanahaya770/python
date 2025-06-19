@@ -7,7 +7,7 @@ driver = webdriver.Chrome(
     service=ChromeService(ChromeDriverManager().install())
 )
 
-driver.implicitly_wait(20)
+driver.implicitly_wait(21)
 
 driver.get("http://uitestingplayground.com/textinput")
 input_box = driver.find_element(By.CLASS_NAME, "form-control")
