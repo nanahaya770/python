@@ -4,43 +4,51 @@ from selenium.webdriver.firefox.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
 
 
-# Запуск браузера с автоматической установкой совместимого драйвера
-driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
-# Пример: откроем сайт
-driver.get("https://www.saucedemo.com/")
+def test_shop():
 
-user_name = driver.find_element(By.XPATH, '//*[@id="user-name"]')
-user_name.send_keys("standard_user")
+    # Запуск браузера с автоматической установкой совместимого драйвера
+    driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
+    # Пример: откроем сайт
+    driver.get("https://www.saucedemo.com/")
 
-password = driver.find_element(By.XPATH, '//*[@id="password"]')
-password.send_keys("secret_sauce")
+    user_name = driver.find_element(By.XPATH, '//*[@id="user-name"]')
+    user_name.send_keys("standard_user")
 
-driver.find_element(By.XPATH, '//*[@id="login-button"]').click()
-driver.find_element(By.ID, "add-to-cart-sauce-labs-backpack").click()
-driver.find_element(By.ID, "add-to-cart-sauce-labs-bolt-t-shirt").click()
-driver.find_element(By.ID, "add-to-cart-sauce-labs-onesie").click()
-driver.find_element(
-    By.XPATH,
-    '/html/body/div/div/div/div[1]/div[1]/div[3]/a'
-).click()
-driver.find_element(By.XPATH, '//*[@id="checkout"]').click()
+    password = driver.find_element(By.XPATH, '//*[@id="password"]')
+    password.send_keys("secret_sauce")
 
-first_name = driver.find_element(By.XPATH, '//input[@id="first-name"]')
-first_name.send_keys("Адам")
+    driver.find_element(By.XPATH, '//*[@id="login-button"]').click()
+    driver.find_element(By.ID, "add-to-cart-sauce-labs-backpack").click()
+    driver.find_element(By.ID, "add-to-cart-sauce-labs-bolt-t-shirt").click()
+    driver.find_element(By.ID, "add-to-cart-sauce-labs-onesie").click()
+    driver.find_element(
+        By.XPATH,
+        '/html/body/div/div/div/div[1]/div[1]/div[3]/a'
+    ).click()
+    driver.find_element(By.XPATH, '//*[@id="checkout"]').click()
 
-last_name = driver.find_element(By.XPATH, '//input[@id="last-name"]')
-last_name.send_keys("Захаров")
+    first_name = driver.find_element(By.XPATH, '//input[@id="first-name"]')
+    first_name.send_keys("Адам")
 
-postal_code = driver.find_element(By.XPATH, '//input[@id="postal-code"]')
-postal_code.send_keys("101000")
+    last_name = driver.find_element(By.XPATH, '//input[@id="last-name"]')
+    last_name.send_keys("Захаров")
 
-# postal_code
-driver.find_element(By.XPATH, '//input[@id="continue"]').click()
+    postal_code = driver.find_element(By.XPATH, '//input[@id="postal-code"]')
+    postal_code.send_keys("101000")
 
-total = driver.find_element(By.XPATH, '//div[@class="summary_total_label"]')
-total_text = total.text
-# print(total_text.split()[1])
+    # postal_code
+    driver.find_element(By.XPATH, '//input[@id="continue"]').click()
 
-driver.close()
+    total = driver.find_element(
+        By.XPATH,
+        '//div[@class="summary_total_label"]'
+    )
+    total_text = total.text
+    # print(total_text.split()[1])
 
-assert total_text.split()[1] == "$58.29"
+    driver.close()
+
+    assert total_text.split()[1] == "$58.29"
+
+
+test_shop()
