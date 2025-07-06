@@ -6,9 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class CalculatorPage:
     def __init__(self, driver):
         self.driver = driver
-        self.fields = {
-            'delay': '45'
-        }
+        self.delay = '45'
         self.buttons_xpath = {
             '7': '//*[@id="calculator"]/div[2]/span[1]',
             '+': '//*[@id="calculator"]/div[2]/span[4]',
@@ -26,7 +24,7 @@ class CalculatorPage:
     def set_delay(self):
         calc = self.driver.find_element(By.CSS_SELECTOR, '#delay')
         calc.clear()
-        calc.send_keys(self.fields.get('delay'))
+        calc.send_keys(self.delay)
 
     def do_calc(self):
         self.driver.find_element(By.XPATH, self.buttons_xpath.get('7')).click()
@@ -35,7 +33,7 @@ class CalculatorPage:
         self.driver.find_element(By.XPATH, self.buttons_xpath.get('=')).click()
 
     def expected_result(self):
-        waiter = WebDriverWait(self.driver, self.fields.get('delay'))
+        waiter = WebDriverWait(self.driver, self.delay)
         waiter.until(
             EC.text_to_be_present_in_element((
                 By.XPATH, '//*[@id="calculator"]/div[1]/div'), self.result)
