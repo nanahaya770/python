@@ -38,9 +38,10 @@ class CalculatorPage:
         waiter = WebDriverWait(self.driver, self.fields.get('delay'))
         waiter.until(
             EC.text_to_be_present_in_element((
-                By.XPATH, '//div[@class="screen"]'), self.result)
+                By.XPATH, '//*[@id="calculator"]/div[1]/div'), self.result)
         )
-        screen = self.driver.find_element(By.XPATH, '//div[@class="screen"]')
+        screen = self.driver.find_element(
+            By.XPATH, '//*[@id="calculator"]/div[1]/div')
         screen_text = screen.text
         if screen_text == self.result:
             return True
