@@ -12,7 +12,7 @@ class OrderPage:
     BUTTON_CONTINUE_XPATH = '//input[@id="continue"]'
 
     def __init__(self, driver):
-        self.wait = WebDriverWait(driver, 5)
+        self.wait = WebDriverWait(driver, 6)
         self.driver = driver
         self.fields = {
             'first-name': "Адам",

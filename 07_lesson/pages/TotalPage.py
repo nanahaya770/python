@@ -9,7 +9,7 @@ class TotalPage:
         self.driver = driver
 
     def total_result(self):
-        self.wait = WebDriverWait(self.driver, 5)
+        self.wait = WebDriverWait(self.driver, 6)
         total = self.driver.find_element(
             By.XPATH,
             '//div[@class="summary_total_label"]'

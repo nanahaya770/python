@@ -10,14 +10,19 @@ class MainPage:
     CART_XPATH = '//*[@id="shopping_cart_container"]/a'
 
     def __init__(self, driver):
-        self.wait = WebDriverWait(driver, 5)
+        self.wait = WebDriverWait(driver, 20)
         self.driver = driver
 
     def add_to_cart(self):
-        self.driver.find_element(By.ID, self.SAUCE_LABS_BACKPACK_ID).click()
-        self.driver.find_element(
-            By.ID, self.SAUCE_LABS_BOLT_T_SHIRT_ID).click()
-        self.driver.find_element(By.ID, self.SAUCE_LABS_ONESIE_ID).click()
+        self.wait.until(
+            EC.element_to_be_clickable((
+                By.ID, self.SAUCE_LABS_BACKPACK_ID))).click()
+        self.wait.until(
+            EC.element_to_be_clickable((
+                By.ID, self.SAUCE_LABS_BOLT_T_SHIRT_ID))).click()
+        self.wait.until(
+            EC.element_to_be_clickable((
+                By.ID, self.SAUCE_LABS_ONESIE_ID))).click()
 
     def go_to_cart(self):
         self.driver.find_element(By.XPATH, self.CART_XPATH).click()

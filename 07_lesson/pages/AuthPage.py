@@ -9,7 +9,7 @@ class AuthPage:
     LOGIN_BUTTON_XPATH = '//*[@id="login-button"]'
 
     def __init__(self, driver):
-        self.wait = WebDriverWait(driver, 5)
+        self.wait = WebDriverWait(driver, 10)
         self.driver = driver
         self.fields = {
             'user-name': "standard_user",
@@ -23,10 +23,12 @@ class AuthPage:
 
         self.wait.until(
             EC.presence_of_element_located((
-                By.XPATH, self.USERNAME_XPATH))).send_keys(self.fields.get('user-name'))
+                By.XPATH, self.USERNAME_XPATH))).send_keys(
+                    self.fields.get('user-name'))
         self.wait.until(
             EC.presence_of_element_located((
-                By.XPATH, self.PASSWORD_XPATH))).send_keys(self.fields.get('password'))
+                By.XPATH, self.PASSWORD_XPATH))).send_keys(
+                    self.fields.get('password'))
 
     def submit_form(self):
         self.wait.until(
