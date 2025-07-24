@@ -30,7 +30,8 @@ def driver() -> WebDriver:
 @allure.step("тестирует вычисление калькулятора")
 @allure.title("калькулятор")
 @allure.description(
-    "Функция создает объект calculator_page, открывает стр.,"
+    "Функция создает объект calculator_page,"
+    "открывает страницу calculator_page,"
     "устанавливает паузу, производит расчет, проверяет результат."
  )
 @allure.feature("вычисляет")
