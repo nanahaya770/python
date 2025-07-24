@@ -1,0 +1,2 @@
+$58.29
+<selenium.webdriver.firefox.webdriver.WebDriver (session="48588fe6-9b99-486f-93a7-58ed24784844")>
