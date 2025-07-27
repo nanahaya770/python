@@ -20,3 +20,4 @@ print(picture.get_attribute("src"))
 # print(text)
 
 driver.quit()
+

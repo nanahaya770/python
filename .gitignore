@@ -1,1 +1,18 @@
-занятия/# int - целые числа (5, -7), float - нец.py
+venv
+venv/
+chromedriver-win64
+chromedriver-win64/
+*.zip
+*.exe
+Mary
+Mary/
+__pycache__
+__pycache__/
+*.chromedriver
+
+
+
+
+
+
+

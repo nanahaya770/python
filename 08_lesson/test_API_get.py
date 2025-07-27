@@ -19,7 +19,7 @@ def test_get_project_by_id():  # позитивный тест
     assert response.status_code == 200
 
 
-def test_get_project_by_id_no_auth():  # негативный тест
+def test_get_project_by_id_no_auth():  # Негативный тест
     HEADERS = {
         'Content-Type': 'application/json'
     }
